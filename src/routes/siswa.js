@@ -3,11 +3,11 @@ let router = express.Router()
 
 router.get('/siswa', (req, res) => {
 
-if(req.query.name){
-	res.send(`Mengambil Data Dari ${req.query.name}`)
+if(req.query.nama){
+	res.send(`Mengambil Data Dari ${req.query.nama}`)
 }
 else{
-	res.send('kamu mengambil data seseorang')
+	res.send('Data Siswa SMK')
 }
 // res.send('you have requested a person')
 
@@ -15,10 +15,14 @@ else{
 
 // spesific
 
-router.get('/siswa/:name', (req, res) => {
+router.get('/siswa/:nama', (req, res) => {
 
-res.send(`you have requested a person ${req.params.name}`)
+res.send(`Mengambil Data Dari ${req.params.nama}`)
 
+})
+
+router.get('/error', (req, res) => {
+	throw new Error('error uripmu')
 })
 
 module.exports = router
